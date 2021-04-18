@@ -1,0 +1,227 @@
+[
+    {
+        "id": "94cf8e9e.4c4dc",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c78da7aa.0ef3e8",
+        "type": "mqtt in",
+        "z": "94cf8e9e.4c4dc",
+        "name": "",
+        "topic": "esp8266/temperature",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "dbf710bb.de12c",
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "7a6de433.20e89c"
+            ]
+        ]
+    },
+    {
+        "id": "eb30e74b.9ca058",
+        "type": "mqtt out",
+        "z": "94cf8e9e.4c4dc",
+        "name": "",
+        "topic": "esp8266/output",
+        "qos": "",
+        "retain": "",
+        "broker": "dbf710bb.de12c",
+        "x": 480,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e8ad8388.38fc9",
+        "type": "ui_switch",
+        "z": "94cf8e9e.4c4dc",
+        "name": "",
+        "label": "Output",
+        "group": "9a1861f8.88c6d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 230,
+        "y": 60,
+        "wires": [
+            [
+                "eb30e74b.9ca058"
+            ]
+        ]
+    },
+    {
+        "id": "92c8e523.183738",
+        "type": "mqtt in",
+        "z": "94cf8e9e.4c4dc",
+        "name": "",
+        "topic": "esp8266/ldr",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "dbf710bb.de12c",
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "fd29e914.9d46e8"
+            ]
+        ]
+    },
+    {
+        "id": "e96d7d26.26dfb",
+        "type": "mqtt in",
+        "z": "94cf8e9e.4c4dc",
+        "name": "",
+        "topic": "esp8266/motion",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "dbf710bb.de12c",
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "9e0997cb.ba5aa8"
+            ]
+        ]
+    },
+    {
+        "id": "9e0997cb.ba5aa8",
+        "type": "ui_text",
+        "z": "94cf8e9e.4c4dc",
+        "group": "9a1861f8.88c6d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Bewegungsmelder:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 510,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fd29e914.9d46e8",
+        "type": "ui_gauge",
+        "z": "94cf8e9e.4c4dc",
+        "name": "",
+        "group": "9a1861f8.88c6d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "LDR",
+        "label": "Helligkeit",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1023",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 510,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "7a6de433.20e89c",
+        "type": "ui_chart",
+        "z": "94cf8e9e.4c4dc",
+        "name": "",
+        "group": "9a1861f8.88c6d",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatur",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 490,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dbf710bb.de12c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "9a1861f8.88c6d",
+        "type": "ui_group",
+        "name": "Frankyhub Multi-Dashboard",
+        "tab": "897e8f0f.c94fb",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "897e8f0f.c94fb",
+        "type": "ui_tab",
+        "name": "Frankyhub MQTT Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
